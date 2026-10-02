@@ -1,0 +1,25 @@
+[project]
+name = "agent-bridge"
+version = "0.1.0"
+description = "A shared task board that lets a cloud agent and a local coding agent (Claude Code) work together."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Erwin Truong" }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+agent-bridge = "agent_bridge.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["agent_bridge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,8 @@
+{
+  "calendar": {
+    "argv": ["{python}", "jobs/calendar_fixture.py", "{param}"],
+    "param": "^\\d{1,2}$",
+    "default": "7",
+    "about": "calendar events for the next N days (fixture data in the demo)"
+  }
+}

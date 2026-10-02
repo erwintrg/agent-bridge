@@ -1,0 +1,18 @@
+# settings and runtime state (never commit)
+.env
+state/
+demo-run/
+*.log
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# notes for the owner, not for the public
+REVIEW.md

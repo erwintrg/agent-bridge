@@ -1,0 +1,16 @@
+# systemd user unit for the watcher.
+#   cp deploy/agent-bridge.service ~/.config/systemd/user/
+#   edit the two paths, then: systemctl --user daemon-reload && systemctl --user enable --now agent-bridge
+# Turns run in their own transient units (BRIDGE_LAUNCHER=systemd), so restarting this service never kills them.
+[Unit]
+Description=agent-bridge watcher (task board between the cloud agent and the local coding agent)
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/agent-bridge
+ExecStart=/usr/bin/python3 -m agent_bridge --env-file %h/agent-bridge/.env watch
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

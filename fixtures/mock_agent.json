@@ -1,0 +1,26 @@
+{
+  "about": "Scripted stand-in for the local agent (demo and tests). A script matches a phrase in the request title; turns are played in order, one per session turn. {answer} is replaced by the reply that resumed the session.",
+  "scripts": [
+    {
+      "match": "unpaid invoices",
+      "turns": [
+        "ASK AGENT: The ledger lists 3 unpaid invoices: Acme Example (EUR 400), Beta Example (EUR 250), Gamma Example (EUR 120). Remind all three, or skip anyone?",
+        "NEEDS HUMAN: 2 reminder drafts are ready in drafts/ (Beta Example, Gamma Example). Acme Example is skipped, per the answer \"{answer}\". On a yes I would email both reminders from the user's account. Send them?",
+        "Done. Nothing was sent. Both reminders stay as drafts in drafts/, per the answer \"{answer}\". Acme Example is noted as paid by phone."
+      ]
+    },
+    {
+      "match": "meeting notes",
+      "turns": [
+        "Done. Today's notes in 3 bullets: 1) the onboarding flow ships Monday, 2) Example Corp asked for a proposal, 3) the staging config moved to the new server."
+      ]
+    },
+    {
+      "match": "SYNC agent-status",
+      "turns": [
+        "Saved on PC: Example Corp proposal due 2026-10-07 17:00 (per the cloud agent, 01.10). Corrections for the agent: none. Deadlines checked: 1, both sides agree."
+      ]
+    }
+  ],
+  "fallback": "Done. (scripted mock agent) No script matched this request, so nothing was changed."
+}

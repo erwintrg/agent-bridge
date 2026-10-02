@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/agent-bridge && python3 -m agent_bridge context"
+          }
+        ]
+      }
+    ]
+  }
+}
